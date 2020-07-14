@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    
+    <record id="account_invoice_line_tree_vendor_bill_changes" model="ir.ui.view">
+      <field name="name">account.invoice.line.vendor.bill.changes</field>
+      <field name="model">account.invoice.line</field>
+      <field name="inherit_id" ref="account.view_invoice_line_tree"/>
+      <field name="arch" type="xml">
+        
+        
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="project_id" />
+          <field name="task_id"/>
+          <field name="description"  string="Project Work Item" />
+          <field name="previousely_worked"/>
+          <field name="current_work"/>
+          <field name="contracting_rate"/>
+        </xpath>
+
+        <!-- <xpath expr="//field[@name='name']" position="attributes">
+          <attribute name="invisible">0</attribute>
+       </xpath> -->
+
+
+      </field>
+    </record>
+
+    <record id="account_invoice_line_form_vendor_bill_changes" model="ir.ui.view">
+      <field name="name">account.invoice.line.form.vendor.bill.changes</field>
+      <field name="model">account.invoice.line</field>
+      <field name="inherit_id" ref="account.view_invoice_line_form"/>
+      <field name="arch" type="xml">
+        
+        
+        <xpath expr="//field[@name='product_id']" position="after">
+          <field name="project_id" />
+          <field name="task_id"/>
+          <field name="description" string="Project Work Item" />
+          <field name="previousely_worked"/>
+          <field name="current_work"/>
+          <field name="contracting_rate"/>
+        </xpath>
+
+        <!-- <xpath expr="//field[@name='name']" position="attributes">
+           <attribute name="invisible">0</attribute>
+        </xpath> -->
+        
+        <xpath expr="//field[@name='name']" position="attributes">
+          <attribute name="invisible">1</attribute>
+       </xpath>
+
+       <xpath expr="//field[@name='product_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+     </xpath>
+
+      </field>
+    </record>
+
+    <record id="account_invoice_line_form_vendor_bill_changes_xx" model="ir.ui.view">
+      <field name="name">account.invoice.line.form.vendor.bill.changes.xx</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_supplier_form"/>
+      <field name="arch" type="xml">
+        
+        
+        <xpath expr="//field[@name='product_id']" position="after">
+          <field name="project_id" />
+          <field name="task_id"/>
+          <field name="description"  string="Project Work Item"/>
+          <field name="previousely_worked"/>
+          <field name="current_work"/>
+          <field name="contracting_rate"/>
+ 
+        </xpath>
+
+        <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="attributes">
+          <attribute name="invisible">1</attribute>
+       </xpath>
+       <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+     </xpath>
+
+
+      </field>
+    </record>
+ 
+  </data>
+</odoo>
